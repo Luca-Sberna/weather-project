@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Col, Container } from "react-bootstrap";
 
-const Forecast = ({ data }) => {
+const Forecast = () => {
   const [forecast, setForecast] = useState([]);
   const [query, setQuery] = useState("");
 

@@ -10,7 +10,7 @@ const CityDetails = () => {
   const [city, setCity] = useState({});
   const [forecast, setForecast] = useState([]);
 
-  const { id } = params;
+  const { id } = "9de3048330c9ad5a92b57969431fd298";
 
   const cityURL = `https://api.openweathermap.org/data/2.5/weather?id=${id}&appid=9de3048330c9ad5a92b57969431fd298&units=metric`;
   const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?id=${id}&appid=9de3048330c9ad5a92b57969431fd298&units=metric`;

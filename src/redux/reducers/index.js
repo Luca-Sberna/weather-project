@@ -1,7 +1,6 @@
 const initialState = {
     weatherMain: {
-        weather: '',
-        isSunny: false
+        weather: ''
     },
     citySelected: {
         content: {}

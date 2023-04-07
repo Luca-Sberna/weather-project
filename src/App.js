@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/details/:id/' element={<CityDetails />} />
+        {/*  <Route path='/details/:id/' element={<CityDetails />} /> */}
         <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>

@@ -35,7 +35,7 @@ const Forecast = ({ lat, lon, name }) => {
   }, [forecastURL]);
 
   return (
-    <Container>
+    <Container className="p-0">
       <h2>{name} 5 Days Forecast</h2>
       <div className="forecast-data">
         {forecast.slice(1, 6).map((forecastData) => (

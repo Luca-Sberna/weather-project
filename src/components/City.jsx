@@ -36,7 +36,7 @@ const City = ({ data }) => {
   return (
     <Container
       fluid
-      className="cont-city mx-auto border rounded-4 p-2 py-3 my-4 bg-info"
+      className="cont-city mx-auto rounded-4 p-2  my-4 bg-info shadow overflow-hidden"
     >
       <Row>
         <h3 className="fw-bold pb-2">
@@ -44,22 +44,23 @@ const City = ({ data }) => {
         </h3>
       </Row>
       <Row>
-        <Col className="fw-bold text-danger shadow rounded-pill">Themp:</Col>
-        <Col className="text-light">{temp}&#176;C</Col>
-        <Col className="shadow rounded-pill">🌡️</Col>
+        <Col className="fw-bold text-danger shadow rounded-pill ">Themp:</Col>
+        <Col className="text-light text-center">{temp}&#176;C</Col>
+        <Col className="shadow rounded-pill ">🌡️</Col>
       </Row>
       <hr />
       <Row>
         <Col className="fw-bold text-danger shadow rounded-pill">Humidity:</Col>
-        <Col className="text-light">{humidity}% </Col>
+        <Col className="text-light text-center">{humidity}% </Col>
         <Col className="shadow rounded-pill">💧</Col>
       </Row>
       <hr />
       <Row>
         <Col className="fw-bold text-danger shadow rounded-pill">Weather:</Col>
-        <Col className="text-light">{weatherMain} </Col>
+        <Col className="text-light text-center">{weatherMain} </Col>
         <Col className="shadow rounded-pill">{getIcon(description)}</Col>
       </Row>
+      <hr />
     </Container>
   );
 };

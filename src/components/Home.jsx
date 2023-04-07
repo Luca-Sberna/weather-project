@@ -54,30 +54,36 @@ const Home = (data) => {
 
   return (
     <>
-      <Container fluid className="pt-5">
+      <Container fluid className="cont-home py-4 bg-info ">
         <Row>
           <Col xs={12} className=" my-3">
             <h1 className="text-center">⛈️EpiWeather🌞</h1>
           </Col>
           <Col xs={10} className="mx-auto">
             <Form onSubmit={handleSubmit}>
-              <FormLabel className="fw-bold">Search your City!:</FormLabel>
+              <FormLabel className="fw-bold rounded-pill p-1 shadow">
+                Search your City!:
+              </FormLabel>
               <Form.Control
                 type="search"
                 value={query}
                 onChange={handleChange}
                 placeholder="type and press Enter for search your city"
-                className="rounded-pill"
+                className="rounded-pill shadow"
               />
             </Form>
           </Col>
-          <Col xs={10} className="mx-auto mb-5">
-            {city?.map((cityData) => (
-              <Link to={"/details/:id/"} className="text-decoration-none">
-                <City key={cityData.id} data={cityData} />
-              </Link>
-            ))}
-          </Col>
+          <Container>
+            <Row>
+              <Col className="mx-auto mb-5">
+                {city?.map((cityData) => (
+                  <Link to={"/details/:id/"} className="text-decoration-none">
+                    <City key={cityData.id} data={cityData} />
+                  </Link>
+                ))}
+              </Col>
+            </Row>
+          </Container>
         </Row>
         {selectedCity && (
           <Forecast

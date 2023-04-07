@@ -34,33 +34,31 @@ const City = ({ data }) => {
   }
 
   return (
-    <Container fluid className="mx-auto border rounded-4 p-1 my-4">
+    <Container
+      fluid
+      className="cont-city mx-auto border rounded-4 p-2 py-3 my-4 bg-info"
+    >
       <Row>
-        <h3>
+        <h3 className="fw-bold pb-2">
           {name} , {country}
         </h3>
       </Row>
       <Row>
-        <Col className="fw-bold">Themp:</Col>
-        <Col>{temp}&#176;C</Col>
-        <Col>🌡️</Col>
+        <Col className="fw-bold text-danger shadow rounded-pill">Themp:</Col>
+        <Col className="text-light">{temp}&#176;C</Col>
+        <Col className="shadow rounded-pill">🌡️</Col>
       </Row>
+      <hr />
       <Row>
-        <Col className="fw-bold">Humidity:</Col>
-        <Col>{humidity}% </Col>
-        <Col>💧</Col>
+        <Col className="fw-bold text-danger shadow rounded-pill">Humidity:</Col>
+        <Col className="text-light">{humidity}% </Col>
+        <Col className="shadow rounded-pill">💧</Col>
       </Row>
+      <hr />
       <Row>
-        <Col className="fw-bold">Weather:</Col>
-        <Col>{weatherMain} </Col>
-        <Col>{getIcon(description)}</Col>
-      </Row>
-      <Row>
-        <Col className="fw-bold">Forecast:</Col>
-        <Col xs={4} className="">
-          {description}
-        </Col>
-        <Col>{getIcon(description)}</Col>
+        <Col className="fw-bold text-danger shadow rounded-pill">Weather:</Col>
+        <Col className="text-light">{weatherMain} </Col>
+        <Col className="shadow rounded-pill">{getIcon(description)}</Col>
       </Row>
     </Container>
   );

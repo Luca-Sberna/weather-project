@@ -27,10 +27,10 @@ const Home = (data) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${baseURL}&units=metric&limit=20`);
+      const response = await fetch(`${baseURL}&units=metric`);
       if (response.ok) {
         const { list } = await response.json();
-        setCity(list);
+        setCity([list[0]]);
         setSelectedCity(list[0]);
       } else {
         alert("Error fetching results");
@@ -40,7 +40,7 @@ const Home = (data) => {
     }
 
     try {
-      const response = await fetch(`${forecastURL}&limit=20`);
+      const response = await fetch(`${forecastURL}`);
       if (response.ok) {
         const { list } = await response.json();
         setCity(list);

@@ -53,7 +53,8 @@ const Forecast = ({ lat, lon, name }) => {
         </Row>
       ) : (
         <Container className="p-0">
-          <h2>{name} 5 Days Forecast</h2>
+          <h2 className="fw-bold text-uppercase">{name}</h2>
+          <p className="fw-bold">Next 5 Days</p>
           <div className="forecast-data">
             {forecast.slice(1, 6).map((forecastData) => (
               <ForecastData key={forecastData.dt} data={forecastData} />

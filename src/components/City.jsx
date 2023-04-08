@@ -10,6 +10,14 @@ const City = ({ data }) => {
   const { temp, humidity } = main;
   const { country } = sys;
   const { main: weatherMain, description } = weather[0];
+  const currentDate = new Date().toLocaleString("en-US", {
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  });
+  console.log(currentDate);
 
   function getIcon(description) {
     switch (description) {
@@ -27,13 +35,14 @@ const City = ({ data }) => {
       case "heavy intensity rain":
       case "very heavy rain":
       case "extreme rain":
+      case "drizzle":
         return "🌧️";
       case "thunderstorm":
         return "⛈️";
-      case "snow":
+      case "snow": //snow non si trova in nesusn modo aggiunta come unica opzione rimasta(si spera) in caso default
         return "❄️";
       default:
-        return "🌀"; // Mostra l'icona del sole se non trova nessuna corrispondenza
+        return "❄️";
     }
   }
 
@@ -44,6 +53,8 @@ const City = ({ data }) => {
       case "Clouds":
         return `${cloud}`;
       case "Rain":
+        return `${rain}`;
+      case "Drizzle":
         return `${rain}`;
       case "Snow":
         return `${snow}`;
@@ -60,12 +71,16 @@ const City = ({ data }) => {
       }}
       className="cont-city mx-auto mt-5 rounded-4 p-2 pt-0  my-4 shadow overflow-hidden"
     >
-      <Row className="pt-0">
-        {}
-        <h3 className="fw-bold pb-2 text-primary">
-          {name} , {country}
-        </h3>
+      <Row className="pt-0 ">
+        <Col className="d-flex justify-content-between align-items-center">
+          <h3 className="fw-bold text-primary">
+            {name},{country}
+          </h3>
+        </Col>
       </Row>
+      <Col>
+        <p className="fw-bold ">{currentDate}</p>
+      </Col>
       <Row>
         <Col className="fw-bold text-danger shadow rounded-pill bg-primary">
           Themp:

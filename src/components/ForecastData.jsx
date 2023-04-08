@@ -12,6 +12,7 @@ const ForecastData = ({ data }) => {
     minute: "numeric",
   });
   const iconURL = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+
   return (
     <Card className="cont-forecast bg-info mb-3 shadow border-0">
       <Card.Body>

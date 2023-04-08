@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import { Container, Row, Col, Form, FormLabel } from "react-bootstrap";
+import { Container, Row, Col, Form, FormLabel, Spinner } from "react-bootstrap";
 import City from "./City";
 import Forecast from "./Forecast";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
-import hero from "../assets/img/hero.gif";
+import logo from "../assets/img/logo.gif";
 
 const Home = (data) => {
   const [query, setQuery] = useState("");
@@ -13,6 +13,7 @@ const Home = (data) => {
   const lat = useState();
   const lon = useState();
   const [selectedCity, setSelectedCity] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const baseURL =
     "https://api.openweathermap.org/data/2.5/find?appid=9de3048330c9ad5a92b57969431fd298&q=" +
@@ -23,19 +24,26 @@ const Home = (data) => {
     query;
 
   const handleChange = (e) => {
+    e.preventDefault();
     setQuery(e.target.value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       const response = await fetch(`${baseURL}&units=metric`);
       if (response.ok) {
         const { list } = await response.json();
+        if (list.length === 0) {
+          alert("City not found,probably is a writing error!");
+          setIsLoading(false);
+          return;
+        }
         setCity([list[0]]);
         setSelectedCity(list[0]);
       } else {
-        alert("Error fetching results");
+        alert("Error,Sorry this city doesn't exist!");
       }
     } catch (error) {
       console.log(error);
@@ -51,6 +59,8 @@ const Home = (data) => {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -61,7 +71,6 @@ const Home = (data) => {
           <Col xs={12} className=" my-3">
             <h1 className="text-center">⛈️EpiWeather🌞</h1>
           </Col>
-
           <Col xs={10} className="mx-auto rounded-pill p-4 shadow">
             <Form onSubmit={handleSubmit}>
               <FormLabel className="fw-bold rounded-pill p-1 shadow bg-primary text-danger">
@@ -76,18 +85,38 @@ const Home = (data) => {
               />
             </Form>
           </Col>
+
           <Container>
             <Row>
               <Col className="mx-auto mb-5">
-                {city?.map((cityData) => (
-                  <Link to={"/details/:id/"} className="text-decoration-none">
-                    <City key={cityData.id} data={cityData} />
-                  </Link>
-                ))}
+                {isLoading ? (
+                  <Row>
+                    <Col className="d-flex justify-content-center pt-5">
+                      <Spinner
+                        className="my-2"
+                        animation="border"
+                        role="status"
+                        variant="danger"
+                      ></Spinner>
+                    </Col>
+                    <div className="">
+                      <p className="text-primary fw-bold text-center">
+                        Rendering your city...
+                      </p>
+                    </div>
+                  </Row>
+                ) : (
+                  city?.map((cityData) => (
+                    <Link to={"/details/:id/"} className="text-decoration-none">
+                      <City key={cityData.id} data={cityData} />
+                    </Link>
+                  ))
+                )}
               </Col>
             </Row>
           </Container>
         </Row>
+
         {selectedCity && (
           <Forecast
             lat={selectedCity.coord.lat}

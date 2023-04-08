@@ -4,6 +4,7 @@ import { Container, Row, Col, Form, FormLabel } from "react-bootstrap";
 import City from "./City";
 import Forecast from "./Forecast";
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 
 const Home = (data) => {
   const [query, setQuery] = useState("");
@@ -54,14 +55,14 @@ const Home = (data) => {
 
   return (
     <>
-      <Container fluid className="cont-home py-4 bg-info ">
+      <Container fluid className="cont-home py-5 bg-info">
         <Row>
           <Col xs={12} className=" my-3">
             <h1 className="text-center">⛈️EpiWeather🌞</h1>
           </Col>
-          <Col xs={10} className="mx-auto">
+          <Col xs={10} className="mx-auto rounded-pill p-4 shadow">
             <Form onSubmit={handleSubmit}>
-              <FormLabel className="fw-bold rounded-pill p-1 shadow">
+              <FormLabel className="fw-bold rounded-pill p-1 shadow bg-primary text-danger">
                 Search your City!:
               </FormLabel>
               <Form.Control
@@ -93,6 +94,7 @@ const Home = (data) => {
           />
         )}
       </Container>
+      <Footer />
     </>
   );
 };

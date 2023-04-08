@@ -1,5 +1,9 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import sun from "../assets/img/sun.gif";
+import cloud from "../assets/img/cloud.gif";
+import rain from "../assets/img/rain.gif";
+import snow from "../assets/img/snow.gif";
 
 const City = ({ data }) => {
   const { name, main, weather, sys } = data; // Destructuring dell'oggetto
@@ -33,32 +37,59 @@ const City = ({ data }) => {
     }
   }
 
+  function getBg(description) {
+    switch (description) {
+      case "Clear":
+        return `${sun}`;
+      case "Clouds":
+        return `${cloud}`;
+      case "Rain":
+        return `${rain}`;
+      case "Snow":
+        return `${snow}`;
+      default:
+        return "#f0f0f0"; // Sfondo grigio come fallback
+    }
+  }
+
   return (
     <Container
-      fluid
-      className="cont-city mx-auto rounded-4 p-2  my-4 bg-info shadow overflow-hidden"
+      style={{
+        backgroundSize: "cover",
+        backgroundImage: `url(${getBg(weatherMain)})`,
+      }}
+      className="cont-city mx-auto mt-5 rounded-4 p-2 pt-0  my-4 shadow overflow-hidden"
     >
-      <Row>
-        <h3 className="fw-bold pb-2">
+      <Row className="pt-0">
+        {}
+        <h3 className="fw-bold pb-2 text-primary">
           {name} , {country}
         </h3>
       </Row>
       <Row>
-        <Col className="fw-bold text-danger shadow rounded-pill ">Themp:</Col>
+        <Col className="fw-bold text-danger shadow rounded-pill bg-primary">
+          Themp:
+        </Col>
         <Col className="text-light text-center">{temp}&#176;C</Col>
-        <Col className="shadow rounded-pill ">🌡️</Col>
+        <Col className="shadow rounded-pill bg-primary">🌡️</Col>
       </Row>
       <hr />
       <Row>
-        <Col className="fw-bold text-danger shadow rounded-pill">Humidity:</Col>
+        <Col className="fw-bold text-danger shadow rounded-pill bg-primary">
+          Humidity:
+        </Col>
         <Col className="text-light text-center">{humidity}% </Col>
-        <Col className="shadow rounded-pill">💧</Col>
+        <Col className="shadow rounded-pill bg-primary">💧</Col>
       </Row>
       <hr />
       <Row>
-        <Col className="fw-bold text-danger shadow rounded-pill">Weather:</Col>
+        <Col className="fw-bold text-danger shadow rounded-pill bg-primary">
+          Weather:
+        </Col>
         <Col className="text-light text-center">{weatherMain} </Col>
-        <Col className="shadow rounded-pill">{getIcon(description)}</Col>
+        <Col className="shadow rounded-pill bg-primary">
+          {getIcon(description)}
+        </Col>
       </Row>
       <hr />
     </Container>

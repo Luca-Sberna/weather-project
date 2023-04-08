@@ -23,7 +23,7 @@ const ForecastData = ({ data }) => {
             <Card.Text className="time-forecast mb-2 text-danger fw-bold bg-primary rounded-circle shadow py-4 px-1 ">
               {time}
             </Card.Text>
-            <Card.Text className="mb-2 text-danger fw-bold rounded-circle py-4 px-3 shadow  bg-primary">
+            <Card.Text className="mb-2 text-danger fw-bold rounded-circle py-3 px-3 shadow  bg-primary">
               {Math.round(data.main.temp)}°C
             </Card.Text>
           </div>

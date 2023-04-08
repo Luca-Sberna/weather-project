@@ -5,6 +5,7 @@ import City from "./City";
 import Forecast from "./Forecast";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
+import hero from "../assets/img/hero.gif";
 
 const Home = (data) => {
   const [query, setQuery] = useState("");
@@ -60,6 +61,7 @@ const Home = (data) => {
           <Col xs={12} className=" my-3">
             <h1 className="text-center">⛈️EpiWeather🌞</h1>
           </Col>
+
           <Col xs={10} className="mx-auto rounded-pill p-4 shadow">
             <Form onSubmit={handleSubmit}>
               <FormLabel className="fw-bold rounded-pill p-1 shadow bg-primary text-danger">

@@ -4,6 +4,7 @@ import sun from "../assets/img/sun.gif";
 import cloud from "../assets/img/cloud.gif";
 import rain from "../assets/img/rain.gif";
 import snow from "../assets/img/snow.gif";
+import haze from "../assets/img/haze.gif";
 
 const City = ({ data }) => {
   const { name, main, weather, sys } = data; // Destructuring dell'oggetto
@@ -39,6 +40,8 @@ const City = ({ data }) => {
         return "🌧️";
       case "thunderstorm":
         return "⛈️";
+      case "haze":
+        return "🌫️";
       case "snow": //snow non si trova in nesusn modo aggiunta come unica opzione rimasta(si spera) in caso default
         return "❄️";
       default:
@@ -56,6 +59,8 @@ const City = ({ data }) => {
         return `${rain}`;
       case "Drizzle":
         return `${rain}`;
+      case "Haze":
+        return `${haze}`;
       case "Snow":
         return `${snow}`;
       default:

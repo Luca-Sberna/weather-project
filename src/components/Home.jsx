@@ -5,9 +5,16 @@ import City from "./City";
 import Forecast from "./Forecast";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
+import wave from "../assets/img/wave.webp";
 import logo from "../assets/img/logo.gif";
 
 const Home = (data) => {
+  const gradient = {
+    background:
+      "linear-gradient(to bottom left, rgba(255, 193, 7, 0.6), transparent), linear-gradient(to bottom right, #03a9f4, #2196f3)",
+    // altre proprietà CSS se necessarie
+  };
+
   const [query, setQuery] = useState("");
   const [city, setCity] = useState([]);
   const lat = useState();
@@ -66,14 +73,21 @@ const Home = (data) => {
 
   return (
     <>
-      <Container fluid className="cont-home py-5 bg-info">
+      <Container style={gradient} fluid className="cont-home py-5 bg-info">
         <Row>
           <Col xs={12} className=" my-3">
             <h1 className="text-center">⛈️EpiWeather🌞</h1>
           </Col>
-          <Col xs={10} className="mx-auto rounded-pill p-4 shadow">
-            <Form onSubmit={handleSubmit}>
-              <FormLabel className="fw-bold rounded-pill p-1 shadow bg-primary text-danger">
+          <Col
+            xs={10}
+            style={{
+              backgroundSize: "cover",
+              backgroundImage: `url(${logo})`,
+            }}
+            className="mx-auto rounded-pill p-4 shadow justify-content-center text-center"
+          >
+            <Form onSubmit={handleSubmit} className="shadow rounded-pill p-1">
+              <FormLabel className="fw-bold rounded-pill  text-danger mx-auto">
                 Search your City!:
               </FormLabel>
               <Form.Control
@@ -81,7 +95,8 @@ const Home = (data) => {
                 value={query}
                 onChange={handleChange}
                 placeholder="type and press Enter for search your city"
-                className="rounded-pill shadow"
+                className="rounded-pill shadow px-2 w-75 my-1 mx-auto align-items-center bg-transparent border-danger"
+                variant="danger"
               />
             </Form>
           </Col>

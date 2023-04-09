@@ -42,7 +42,7 @@ const ForecastData = ({ data }) => {
         backgroundSize: "cover",
         backgroundImage: `url(${getBgForecast(data.weather[0].main)})`,
       }}
-      className="cont-forecast mb-3 shadow border-0 "
+      className="cont-forecast mb-4 shadow border-0 "
     >
       <Card.Body>
         <div className=" rounded-4 shadow pt-1 px-3 bg-opacity-25 ">

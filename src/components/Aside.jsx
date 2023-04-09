@@ -28,7 +28,7 @@ const Aside = () => {
       setTimeLeft((prevTimeLeft) => prevTimeLeft - 1);
     }, 1000);
 
-    // Termina il gioco dopo 20 secondi
+    // Termina il gioco dopo 15 secondi
     setTimeout(() => {
       clearInterval(timer);
       setGameOver(true);

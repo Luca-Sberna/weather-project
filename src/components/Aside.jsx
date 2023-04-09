@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 
 const Aside = () => {
@@ -6,6 +6,16 @@ const Aside = () => {
   const [gameOver, setGameOver] = useState(false);
   const [timeLeft, setTimeLeft] = useState(15);
   const [gameStarted, setGameStarted] = useState(false);
+  const [highScore, setHighScore] = useState(
+    localStorage.getItem("epiClickerHighScore") || 0,
+  );
+  // Salviamo il nuovo punteggio più alto
+  useEffect(() => {
+    if (score > highScore) {
+      setHighScore(score);
+      localStorage.setItem("epiClickerHighScore", score);
+    }
+  }, [score, highScore]);
 
   function startGame() {
     setScore(0);
@@ -34,7 +44,7 @@ const Aside = () => {
   }
 
   return (
-    <Container fluid className="py-4 pb-5 bg">
+    <Container fluid className="py-4 bg">
       <Container className="border py-2 rounded-4 shadow">
         <h1 className="pb-3 mb-0">Epi Clicker Game</h1>
         <p className="">For Fight the Booring moment</p>
@@ -61,9 +71,10 @@ const Aside = () => {
             <hr />
           </div>
         )}
-        <p className="py-2">
+        <p className="py-2 fw-bold">
           How many times can you click the button in 15 seconds?
         </p>
+        <p className="text-end fw-bold">high score: {highScore}</p>
         <Button onClick={startGame} disabled={gameStarted}>
           Start game
         </Button>

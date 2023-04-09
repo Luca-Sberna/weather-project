@@ -86,31 +86,33 @@ const City = ({ data }) => {
       <Col>
         <p className="fw-bold ">{currentDate}</p>
       </Col>
-      <Row>
-        <Col className="fw-bold text-danger shadow rounded-pill bg-primary">
-          Themp:
-        </Col>
-        <Col className="text-light text-center">{temp}&#176;C</Col>
-        <Col className="shadow rounded-pill bg-primary">🌡️</Col>
-      </Row>
-      <hr />
-      <Row>
-        <Col className="fw-bold text-danger shadow rounded-pill bg-primary">
-          Humidity:
-        </Col>
-        <Col className="text-light text-center">{humidity}% </Col>
-        <Col className="shadow rounded-pill bg-primary">💧</Col>
-      </Row>
-      <hr />
-      <Row>
-        <Col className="fw-bold text-danger shadow rounded-pill bg-primary">
-          Weather:
-        </Col>
-        <Col className="text-light text-center">{weatherMain} </Col>
-        <Col className="shadow rounded-pill bg-primary">
-          {getIcon(description)}
-        </Col>
-      </Row>
+      <Container fluid className="shadow p-md-5">
+        <Row>
+          <Col className="fw-bold text-danger shadow rounded-pill bg-primary">
+            Themp:
+          </Col>
+          <Col className="text-light text-center">{temp}&#176;C</Col>
+          <Col className="shadow rounded-pill bg-primary">🌡️</Col>
+        </Row>
+        <hr />
+        <Row>
+          <Col className="fw-bold text-danger shadow rounded-pill bg-primary">
+            Humidity:
+          </Col>
+          <Col className="text-light text-center">{humidity}% </Col>
+          <Col className="shadow rounded-pill bg-primary">💧</Col>
+        </Row>
+        <hr />
+        <Row>
+          <Col className="fw-bold text-danger shadow rounded-pill bg-primary">
+            Weather:
+          </Col>
+          <Col className="text-light text-center">{weatherMain} </Col>
+          <Col className="shadow rounded-pill bg-primary">
+            {getIcon(description)}
+          </Col>
+        </Row>
+      </Container>
       <hr />
     </Container>
   );

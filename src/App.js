@@ -7,8 +7,6 @@ import { Container } from 'react-bootstrap';
 
 
 /* DA FARE:
--TOGLIERE sole
-- gradient SFONDO
 -posizionamento elementi tablet e pc 
 -aggiunta ulteriori info in forecast affianco a gradi
 -animazioni e hover

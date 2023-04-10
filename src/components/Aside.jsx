@@ -45,7 +45,7 @@ const Aside = () => {
 
   return (
     <Container fluid className="py-4 bg">
-      <Container className="border py-2 rounded-4 shadow">
+      <Container className="border  border-info py-2 rounded-4 shadow">
         <h1 className="pb-3 mb-0">Epi Clicker Game</h1>
         <p className="">For Fight the Booring moment</p>
         <hr />

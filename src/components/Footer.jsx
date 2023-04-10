@@ -19,29 +19,29 @@ const Footer = () => {
           <FontAwesomeIcon
             icon={faInstagram}
             size="3x"
-            className="shadow rounded-pill p-1"
+            className="shadow rounded-pill p-1 text-primary"
           />
         </Col>
         <Col>
           <FontAwesomeIcon
             icon={faFacebook}
             size="3x"
-            className="shadow rounded-circle p-1"
+            className="shadow rounded-circle p-1 text-primary "
           />
         </Col>
         <Col>
           <FontAwesomeIcon
             icon={faTwitter}
             size="3x"
-            className="shadow rounded-circle p-1"
+            className="shadow rounded-circle p-1 text-primary"
           />
         </Col>
       </Row>
       <Row>
-        <Col>{year}</Col>
+        <Col className="text-primary">{year}</Col>
       </Row>
-      <Col>©EpiWeather©</Col>
-      <Col>All rights reserved to Luca Sberna.</Col>
+      <Col className="text-primary">©EpiWeather©</Col>
+      <Col className="text-primary">All rights reserved to Luca Sberna.</Col>
     </Container>
   );
 };

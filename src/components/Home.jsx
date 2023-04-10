@@ -5,8 +5,6 @@ import City from "./City";
 import Forecast from "./Forecast";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
-import wave from "../assets/img/wave.webp";
-import logo from "../assets/img/logo.gif";
 import Aside from "./Aside";
 
 const Home = (data) => {
@@ -70,61 +68,76 @@ const Home = (data) => {
     <>
       <Container fluid className="cont-home py-4 bg">
         <Row>
-          <Col xs={12} className=" my-3">
+          <Col xs={12} className=" my-4">
             <h1 className="text-center">⛈️EpiWeather🌞</h1>
           </Col>
+          <h3 className="text-center pb-3">
+            Find the weather of neighborhoods,districts
+            <br />
+            City,Region or State!
+          </h3>{" "}
           <Col
             xs={10}
-            style={{
-              backgroundSize: "cover",
-              backgroundImage: `url(${logo})`,
-            }}
-            className="bg-search mx-auto rounded-pill p-4 shadow justify-content-center text-center"
+            className="border border-info bg-search mx-auto rounded-pill p-4 shadow justify-content-center text-center"
           >
-            <Form onSubmit={handleSubmit} className="shadow rounded-pill p-1">
-              <FormLabel className="fw-bold text-uppercase rounded-pill  text-primary mx-auto">
-                Search your City!:
-              </FormLabel>
+            <Form
+              onSubmit={handleSubmit}
+              className="shadow rounded-pill p-1 border border-info"
+            >
               <Form.Control
                 type="search"
                 value={query}
                 onChange={handleChange}
                 placeholder="type and press Enter for search your city"
-                className="rounded-pill shadow px-2 w-75 my-2 mx-auto align-items-center bg-transparent border-dark"
-                variant="danger"
+                className=" rounded-pill shadow px-2 w-75 my-2 mx-auto align-items-center bg-info border-info"
               />
             </Form>
           </Col>
-
-          <Container>
-            <Row>
-              <Col className="mx-auto mb-5">
-                {isLoading ? (
-                  <Row>
-                    <Col className="d-flex justify-content-center pt-5">
-                      <Spinner
-                        className="my-2"
-                        animation="border"
-                        role="status"
-                        variant="danger"
-                      ></Spinner>
-                    </Col>
-                    <div className="">
-                      <p className="text-primary fw-bold text-center">
-                        Rendering your city...
-                      </p>
-                    </div>
-                  </Row>
-                ) : (
-                  city?.map((cityData) => (
-                    <Link to={"/details/:id/"} className="text-decoration-none">
-                      <City key={cityData.id} data={cityData} />
-                    </Link>
-                  ))
-                )}
-              </Col>
-            </Row>
-          </Container>
+          <Col
+            xs={12}
+            className="border-light mt-4 border-top border-bottom bg-info"
+          >
+            <p className="pt-1 opacity-50 text-center mb-0">
+              <strong>Remember that</strong> to specify the State
+              <br /> of a <strong>city</strong> or a <strong>country</strong>{" "}
+              you need to add a <strong>comma</strong> ("<strong>,</strong>") .{" "}
+            </p>
+            <p className="text-center opacity-50 p-0 mb-1">Example: Milan,US</p>
+          </Col>
+          {city !== null && (
+            <Container>
+              <Row>
+                <Col className="mx-auto mb-5">
+                  {isLoading ? (
+                    <Row>
+                      <Col className="d-flex justify-content-center pt-5">
+                        <Spinner
+                          className="my-2"
+                          animation="border"
+                          role="status"
+                          variant="danger"
+                        ></Spinner>
+                      </Col>
+                      <div className="">
+                        <p className="text-primary fw-bold text-center">
+                          Rendering your city...
+                        </p>
+                      </div>
+                    </Row>
+                  ) : (
+                    city?.map((cityData) => (
+                      <Link
+                        to={"/details/:id/"}
+                        className="text-decoration-none"
+                      >
+                        <City key={cityData.id} data={cityData} />
+                      </Link>
+                    ))
+                  )}
+                </Col>
+              </Row>
+            </Container>
+          )}
         </Row>
 
         {selectedCity && (

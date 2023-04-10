@@ -7,9 +7,13 @@ import { Container } from 'react-bootstrap';
 
 
 /* DA FARE:
--aggiunta ulteriori info in forecast affianco a gradi
--pagina details della citta con tutte le stats fornite dalla prima fetch e possibilita di tornare nella home
+-aggiunta ulteriori info in forecast affianco a gradi -IMPORTANT
+-pagina details della citta con tutte le stats fornite dalla prima fetch(e aggiunta delle stesse nella tabella della versione xl) e possibilita di tornare nella home
 -cambio ombreggiature con sass
+-personaliz. not found
+
+
+      sorry stefano non sono riuscito a finirlo come avrei voluto , sono le 23:17 del 10/04/2023 e penso dopo questo week-end di svenire sul letto istantaneamente
 */
 
 

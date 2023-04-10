@@ -42,7 +42,7 @@ const ForecastData = ({ data }) => {
         backgroundSize: "cover",
         backgroundImage: `url(${getBgForecast(data.weather[0].main)})`,
       }}
-      className="cont-forecast mb-4 shadow border-0 "
+      className="cont-forecast mb-4 shadow border border-info"
     >
       <Card.Body>
         <div className=" rounded-4 shadow pt-1 px-3 bg-opacity-25 ">
@@ -64,7 +64,7 @@ const ForecastData = ({ data }) => {
           />
         </Card.Text>
 
-        <Card.Text className="text-center text-danger rounded-pill shadow w-50 mx-auto  bg-primary ">
+        <Card.Text className="text-center text-danger rounded-pill shadow w-75 mx-auto  bg-primary ">
           {" "}
           {data.weather[0].description}
         </Card.Text>

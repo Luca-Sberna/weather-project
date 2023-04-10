@@ -74,10 +74,10 @@ const City = ({ data }) => {
         backgroundSize: "cover",
         backgroundImage: `url(${getBg(weatherMain)})`,
       }}
-      className="cont-city mx-auto mt-5 rounded-4 p-2 pt-0  my-4 shadow overflow-hidden"
+      className="cont-city mx-auto mt-5 rounded-4 p-2 pt-0  my-4 shadow overflow-hidden border border-info"
     >
       <Row className="pt-0 ">
-        <Col className="d-flex justify-content-between align-items-center">
+        <Col className="d-flex justify-content-between align-items-center ">
           <h3 className="fw-bold text-primary">
             {name},{country}
           </h3>

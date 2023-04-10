@@ -130,7 +130,16 @@ const Home = (data) => {
                         to={"/details/:id/"}
                         className="text-decoration-none"
                       >
-                        <City key={cityData.id} data={cityData} />
+                        <Row className="pe-3">
+                          <Col xs={12} lg={6}>
+                            <City key={cityData.id} data={cityData} />
+                          </Col>
+
+                          <Col
+                            lg={6}
+                            className="d-none d-lg-flex rounded-4 border border-info mt-5 mb-4"
+                          ></Col>
+                        </Row>
                       </Link>
                     ))
                   )}

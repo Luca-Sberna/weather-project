@@ -10,7 +10,7 @@
   background-color: #a0d8f2c7;
 }
 
-/* .cont-forecast {
+.cont-forecast {
   &:hover {
     transform: scale(1.02);
   }
@@ -20,4 +20,8 @@
     transform: scale(1.02);
   }
 }
- */
+.cont-near-city {
+  &:hover {
+    transform: scale(1.02);
+  }
+}

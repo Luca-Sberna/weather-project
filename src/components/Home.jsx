@@ -126,18 +126,14 @@ const Home = (data) => {
                     </Row>
                   ) : (
                     city?.map((cityData) => (
-                      <Link
-                        to={"/details/:id/"}
-                        className="text-decoration-none"
-                      >
+                      <Link to={"/"} className="text-decoration-none">
                         <Row className="pe-3">
                           <Col xs={12} lg={6}>
                             <City key={cityData.id} data={cityData} />
                           </Col>
-
                           <Col
                             lg={6}
-                            className="d-none d-lg-flex rounded-4 border border-info mt-5 mb-4"
+                            className="cont-near-city d-none d-lg-flex rounded-4 border border-info mt-5 mb-4 bg-success shadow"
                           ></Col>
                         </Row>
                       </Link>
